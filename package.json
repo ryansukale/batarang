@@ -1,0 +1,23 @@
+{
+  "name": "nano",
+  "version": "1.0.0",
+  "description": "Tiny reusable utilities in javascript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tutorialhorizon/nano.git"
+  },
+  "keywords": [
+    "javascript",
+    "utilities"
+  ],
+  "author": "tutorialhorizon@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tutorialhorizon/nano/issues"
+  },
+  "homepage": "https://github.com/tutorialhorizon/nano#readme"
+}
