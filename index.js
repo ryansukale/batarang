@@ -7,5 +7,7 @@ module.exports = {
   excludeFromList: require('./lib/excludeFromList'),
   sortByField: require('./lib/sortByField'),
   getYoutubeVideoId: require('./lib/getYoutubeVideoId'),
-	isEnterKey: require('./lib/isEnterKey')
+  isEnterKey: require('./lib/isEnterKey'),
+  injectScript: require('./lib/injectScript'),
+	loadExternalScripts: require('./lib/loadExternalScripts')
 };
