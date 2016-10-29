@@ -10,7 +10,7 @@ module.exports = {
 	reloadPage: require('./lib/reloadPage'),
 
 	// Boolean Checks
-	isValidEmail: require('./lib/isValidEmail'),
+	isEmail: require('./lib/isEmail'),
 	isEnterKey: require('./lib/isEnterKey'),
 
 	// Misc
