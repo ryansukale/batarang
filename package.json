@@ -4,7 +4,7 @@
   "description": "Tiny javascript functions to attack everyday problems",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha tests/*.test.js"
   },
   "repository": {
     "type": "git",
@@ -19,5 +19,9 @@
   "bugs": {
     "url": "https://github.com/ryansukale/batarang/issues"
   },
-  "homepage": "https://github.com/ryansukale/batarang#readme"
+  "homepage": "https://github.com/ryansukale/batarang#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.1.2"
+  }
 }
