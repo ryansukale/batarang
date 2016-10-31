@@ -18,5 +18,7 @@ module.exports = {
 	getHostNameFromUrl: require('./lib/getHostNameFromUrl'),
 	getQueryParams: require('./lib/getQueryParams'),
 	getQueryString: require('./lib/getQueryString'),
-	getYoutubeVideoId: require('./lib/getYoutubeVideoId')
+	getYoutubeVideoId: require('./lib/getYoutubeVideoId'),
+	bindOnInstance: require('./lib/bindOnInstance'),
+	capitalizeFirstChar: require('./lib/capitalizeFirstChar')
 };
