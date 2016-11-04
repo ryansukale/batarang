@@ -3,6 +3,7 @@ module.exports = {
 	excludeFromList: require('./lib/excludeFromList'),
 	sortByField: require('./lib/sortByField'),
 	arrayToMap: require('./lib/arrayToMap'),
+	swapArrayItems: require('./lib/swapArrayItems'),
 
 	// Browser
 	injectScript: require('./lib/injectScript'),
