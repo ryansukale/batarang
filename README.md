@@ -1,4 +1,6 @@
-batarang
+![alt tag](batarang_icon.jpg)
+
+batarang.js
 ---
 
-Tiny javascript functions to attack everyday problems.
+A utility belt of tiny javascript functions to attack not-so-everyday problems.
