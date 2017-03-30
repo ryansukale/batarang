@@ -24,17 +24,17 @@ describe('excludeFromList', function() {
 
   it('excludes items from a list based on custom key', function () {
   	var list = [
-  		{custom: 1},
-  		{custom: 2},
-  		{custom: 3},
-  		{custom: 4}
+  		{field_name: 1},
+  		{field_name: 2},
+  		{field_name: 3},
+  		{field_name: 4}
   	];
   	var itemsToExclude = [1, 3];
 
-    expect(excludeFromList(list, itemsToExclude, 'custom')).to.deep.equal(
+    expect(excludeFromList(list, itemsToExclude, 'field_name')).to.deep.equal(
     	[
-    		{custom: 2},
-    		{custom: 4}
+    		{field_name: 2},
+    		{field_name: 4}
     	]
     );
   });
