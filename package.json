@@ -1,6 +1,6 @@
 {
   "name": "batarang",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Tiny javascript functions to attack everyday problems",
   "main": "index.js",
   "scripts": {
