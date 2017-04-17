@@ -83,7 +83,12 @@ capitalizeFirstChar('exampleString')
 ```
 
 ##### getCSVWords
-TODO: Document
+For a given comma separated string, returns and array of words split by comma. Trims blank spaces and omits empty characters.
+
+```js
+getCSVWords(',  hello,, ,    ,world, ,');
+// ['hello', 'world']
+```
 
 ##### getHostNameFromUrl
 TODO: Document
