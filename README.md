@@ -79,7 +79,8 @@ TODO: Document
 Capitalize the first character of a string.
 
 ```js
-capitalizeFirstChar('exampleString')
+capitalizeFirstChar('examplestring')
+// ExampleString
 ```
 
 ##### getCSVWords
