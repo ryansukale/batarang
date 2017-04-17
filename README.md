@@ -100,8 +100,24 @@ TODO: Document
 TODO: Document
 
 ##### isEnterKey
-TODO: Document
+Given an event object, returns true if it represents the enter key.
+
+```js
+var event = {keyCode: 13};
+isEnterKey(event); // true
+
+event = {keyCode: 1000};
+isEnterKey(event) // false
+```
+
+---
 
 ##### reloadPage
-TODO: Document
+Reloads the page. This is just a wrapper around window.location.reload so it will only work on the client. A boolean argument of true forces it to reload from the server - and you thereby lose the scroll positioning. [Read more at MDN](https://developer.mozilla.org/en-US/docs/Web/API/Location/reload)
+
+```js
+reloadPage(); // Attempts to reload page from the cache
+
+reloadPage(true); // Attempts to reload page from the server
+```
 ---
