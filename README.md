@@ -18,7 +18,7 @@ npm run test
 
 ### Array Utilities
 
-##### pluckUniqueValues
+##### pluckUniqueValues(array, [fieldName='id'])
 Given an array of objects, gets all the unique values of a given key. The default key is `id`.
 
 ```js
@@ -36,7 +36,7 @@ pluckUniqueValues(items, 'name');
 // ['one', 'two'] All the unique values of name
 ```
 
-##### swapArrayItems
+##### swapArrayItems(array, number, number)
 Returns an new array with the items at the given indexes swapped.
 
 ```js
@@ -45,18 +45,28 @@ swapArrayItems(arr, 1, 3)
 // [{a: 1}, {d: 4} , {c: 3}, {b: 2}]
 ```
 
-##### excludeFromList
+##### excludeFromList(array, array, [fieldName='id'])
 Excludes items from the first array of objects if the value of an item's specific field name is present the second input array.
 
 Returns a new array.
 
 ```
-excludeFromList([{id: 1}, {id: 2}, {id: 3}], [2, 3], 'id');
-// [{id: 1}]
+var idsToRemove = [2, 3];
+var items = [
+  {id: 1, name: 'a'},
+  {id: 2, name: 'b'},
+  {id: 3, name: 'c'}
+];
 
+excludeFromList(items, idsToRemove);
+// [{id: 1, name: 'a'}]
+
+var namesToRemove = ['b'];
+excludeFromList(items, namesToRemove, 'name');
+// [{id: 1, name: 'a'}, {id: 3, name: 'c'}]
 ```
 
-#### sortByField
+#### sortByField(array, fieldName, [order='ASC'])
 Given an array of objects, sort the objects in ascending or descending order based on the value of a key.
 
 ```js
@@ -68,14 +78,25 @@ sortByField(items, 'id', 'DESC');
 // [{id: 4}, {id: 3}, {id: 2}, {id: 1}]
 ```
 
-##### arrayToMap
-TODO: Document
+##### arrayToMap(array, [fieldName='id'])
+Converts an array of objects into a hash, where the key is one of the object properties. This is useful when you want convert an array of data you recieve from the server into a lookup hash to show on the UI based on the some field.
 
+```js
+var rows = [
+  {age: 10},
+  {age: 12},
+  {age: 14}
+];
+
+arrayToMap(rows);
+// { 10: {age: 10}, 12: {age: 12}, 14: {age: 14} }
+
+```
 ---
 
 ### Misc Utilities
 
-##### capitalizeFirstChar
+##### capitalizeFirstChar(string)
 Capitalize the first character of a string.
 
 ```js
@@ -83,7 +104,7 @@ capitalizeFirstChar('examplestring')
 // ExampleString
 ```
 
-##### getCSVWords
+##### getCSVWords(string)
 For a given comma separated string, returns and array of words split by comma. Trims blank spaces and omits empty characters.
 
 ```js
@@ -113,7 +134,7 @@ isEnterKey(event) // false
 
 ---
 
-##### reloadPage
+##### reloadPage([boolean=false])
 Reloads the page. This is just a wrapper around window.location.reload so it will only work on the client. A boolean argument of true forces it to reload from the server - and you thereby lose the scroll positioning. [Read more at MDN](https://developer.mozilla.org/en-US/docs/Web/API/Location/reload)
 
 ```js
