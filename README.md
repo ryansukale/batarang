@@ -105,8 +105,28 @@ getQueryString(url)
 // search_query=the+dark+knight
 ```
 
-##### getHostNameFromUrl
-TODO: Document
+##### getQueryParams(url, [key])
+Given a url, and a key, returns the values of the key if it is present as a query parameter. If no key is provided, it returns a hash of all the query parameters.
+Single values are returned as strings
+Multiple values are returned as arrays
+
+```js
+var url = 'https://www.youtube.com/watch?v=CqlNSVZpbAg';
+var multiValues = ''https://www.example.com?x=1&x=11&y=2&z=3'';
+
+getQueryParams(url, 'v'); // CqlNSVZpbAg
+getQueryParams(multiValues, 'name'); // ['1', '11']
+getQueryParams(multiValues); // { x: ['1', '11'] , y: '2', z: '3' }
+
+```
+
+##### getHostNameFromUrl(url)
+Returns the hostname from a url. At the moment only works on the browser since it uses `document` to create an in-memory anchor tag to extract a url.
+
+```js
+getHostNameFromUrl('https://www.youtube.com/watch?v=KFHccsaTakg');
+// www.youtube.com
+```
 
 ##### getYoutubeVideoId(url)
 Given a youtube video URL, returns the its video id
