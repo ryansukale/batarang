@@ -108,9 +108,27 @@ getQueryString(url)
 ##### getHostNameFromUrl
 TODO: Document
 
-##### getYoutubeVideoId
-TODO: Document
+##### getYoutubeVideoId(url)
+Given a youtube video URL, returns the its video id
 
+```js
+var url = 'https://www.youtube.com/watch?v=EXeTwQWrcwY';
+getYoutubeVideoId(url);
+// EXeTwQWrcwY
+
+var playlistUrl = 'https://www.youtube.com/watch?v=ZRG1tWQN6e8&list=PLatdFpOvGjYGM6SMVXz1jpJMJdeHLKJun';
+getYoutubeVideoId(playlistUrl);
+// ZRG1tWQN6e8
+
+var shortUrl = 'https://youtu.be/VLXyMzCi7Mo';
+getYoutubeVideoId(shortUrl);
+// ZRG1tWQN6e8
+
+var embedUrl = 'https://www.youtube.com/embed/VLXyMzCi7Mo';
+getYoutubeVideoId(embedUrl);
+// ZRG1tWQN6e8
+
+```
 ---
 
 ### Misc Utilities
