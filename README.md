@@ -94,6 +94,25 @@ arrayToMap(rows);
 ```
 ---
 
+### URL Utilities
+
+##### getQueryString(url)
+Returns the query string of a URL
+
+```js
+var url = 'https://www.youtube.com/results?search_query=the+dark+knight';
+getQueryString(url)
+// search_query=the+dark+knight
+```
+
+##### getHostNameFromUrl
+TODO: Document
+
+##### getYoutubeVideoId
+TODO: Document
+
+---
+
 ### Misc Utilities
 
 ##### capitalizeFirstChar(string)
@@ -111,12 +130,6 @@ For a given comma separated string, returns and array of words split by comma. T
 getCSVWords(',  hello,, ,    ,world, ,');
 // ['hello', 'world']
 ```
-
-##### getHostNameFromUrl
-TODO: Document
-
-##### getYoutubeVideoId
-TODO: Document
 
 ##### isEmail
 TODO: Document
