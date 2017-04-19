@@ -164,10 +164,7 @@ getCSVWords(',  hello,, ,    ,world, ,');
 // ['hello', 'world']
 ```
 
-##### isEmail
-TODO: Document
-
-##### isEnterKey
+##### isEnterKey(event)
 Given an event object, returns true if it represents the enter key.
 
 ```js
