@@ -2,7 +2,7 @@ var chai = require('chai');
 var expect = chai.expect;
 var ROOT = '../';
 
-var capitalizeFirstChar = require(ROOT + 'lib/capitalizeFirstChar');
+var capitalizeFirstChar = require(ROOT + '/capitalizeFirstChar');
 
 describe('capitalizeFirstChar', function () {
   it('capitalizes the first character of as string', function () {

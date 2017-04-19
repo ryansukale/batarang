@@ -2,7 +2,7 @@ var chai = require('chai');
 var expect = chai.expect;
 var ROOT = '../';
 
-var swapArrayItems = require(ROOT + 'lib/swapArrayItems');
+var swapArrayItems = require(ROOT + '/swapArrayItems');
 
 describe('swapArrayItems', function() {
   it('returns a NEW array with items swapped', function () {

@@ -1,25 +1,25 @@
 module.exports = {
 	// Arrays
-	excludeFromList: require('./lib/excludeFromList'),
-	sortByField: require('./lib/sortByField'),
-	arrayToMap: require('./lib/arrayToMap'),
-	swapArrayItems: require('./lib/swapArrayItems'),
+	excludeFromList: require('./excludeFromList'),
+	sortByField: require('./sortByField'),
+	arrayToMap: require('./arrayToMap'),
+	swapArrayItems: require('./swapArrayItems'),
 
 	// Browser
-	injectScript: require('./lib/injectScript'),
-	loadExternalScripts: require('./lib/loadExternalScripts'),
-	reloadPage: require('./lib/reloadPage'),
+	injectScript: require('./injectScript'),
+	loadExternalScripts: require('./loadExternalScripts'),
+	reloadPage: require('./reloadPage'),
 
 	// Boolean Checks
-	isEmail: require('./lib/isEmail'),
-	isEnterKey: require('./lib/isEnterKey'),
+	isEmail: require('./isEmail'),
+	isEnterKey: require('./isEnterKey'),
 
 	// Misc
-	getCSVWords: require('./lib/getCSVWords'),
-	getHostNameFromUrl: require('./lib/getHostNameFromUrl'),
-	getQueryParams: require('./lib/getQueryParams'),
-	getQueryString: require('./lib/getQueryString'),
-	getYoutubeVideoId: require('./lib/getYoutubeVideoId'),
-	bindOnInstance: require('./lib/bindOnInstance'),
-	capitalizeFirstChar: require('./lib/capitalizeFirstChar')
+	getCSVWords: require('./getCSVWords'),
+	getHostNameFromUrl: require('./getHostNameFromUrl'),
+	getQueryParams: require('./getQueryParams'),
+	getQueryString: require('./getQueryString'),
+	getYoutubeVideoId: require('./getYoutubeVideoId'),
+	bindOnInstance: require('./bindOnInstance'),
+	capitalizeFirstChar: require('./capitalizeFirstChar')
 };
