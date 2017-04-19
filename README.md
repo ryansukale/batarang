@@ -188,3 +188,7 @@ reloadPage(); // Attempts to reload page from the cache
 reloadPage(true); // Attempts to reload page from the server
 ```
 ---
+
+##### License
+
+MIT

@@ -2,7 +2,7 @@ var chai = require('chai');
 var expect = chai.expect;
 var ROOT = '../';
 
-var arrayToMap = require(ROOT + 'lib/arrayToMap');
+var arrayToMap = require(ROOT + '/arrayToMap');
 
 describe('arrayToMap', function () {
   it('uses the id as the key by default', function () {

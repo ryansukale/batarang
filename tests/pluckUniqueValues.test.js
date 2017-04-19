@@ -2,7 +2,7 @@ var chai = require('chai');
 var expect = chai.expect;
 var ROOT = '../';
 
-var pluckUniqueValues = require(ROOT + 'lib/pluckUniqueValues');
+var pluckUniqueValues = require(ROOT + '/pluckUniqueValues');
 
 var items = [
   {id: 1, name: 'one'},

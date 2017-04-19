@@ -2,7 +2,7 @@ var chai = require('chai');
 var expect = chai.expect;
 var ROOT = '../';
 
-var isEnterKey = require(ROOT + 'lib/isEnterKey');
+var isEnterKey = require(ROOT + '/isEnterKey');
 
 describe('isEnterKey', function() {
   it('returns true if the event keyCode is 13', function () {

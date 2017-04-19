@@ -2,7 +2,7 @@ var chai = require('chai');
 var expect = chai.expect;
 var ROOT = '../';
 
-var getQueryParams = require(ROOT + 'lib/getQueryParams');
+var getQueryParams = require(ROOT + '/getQueryParams');
 
 describe('getQueryParams', function() {
   it('gets the value of a query param from a url', function () {
