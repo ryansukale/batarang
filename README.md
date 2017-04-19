@@ -1,4 +1,5 @@
-![alt tag](batarang_icon.jpg)
+
+![batarang javascript library](batarang_icon.jpg)
 
 batarang.js
 ---
@@ -50,7 +51,7 @@ Excludes items from the first array of objects if the value of an item's specifi
 
 Returns a new array.
 
-```
+```js
 var idsToRemove = [2, 3];
 var items = [
   {id: 1, name: 'a'},
@@ -88,7 +89,7 @@ var rows = [
   {age: 14}
 ];
 
-arrayToMap(rows);
+arrayToMap(rows, 'age');
 // { 10: {age: 10}, 12: {age: 12}, 14: {age: 14} }
 
 ```
@@ -152,7 +153,7 @@ Capitalize the first character of a string.
 
 ```js
 capitalizeFirstChar('examplestring')
-// ExampleString
+// Examplestring
 ```
 
 ##### getCSVWords(string)
