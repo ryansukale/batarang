@@ -2,7 +2,7 @@ var chai = require('chai');
 var expect = chai.expect;
 var ROOT = '../';
 
-var sortByField = require(ROOT + 'lib/sortByField');
+var sortByField = require(ROOT + '/sortByField');
 
 describe('sortByField', function() {
   it('sorts the items in ASC order for the specified field', function () {

@@ -2,7 +2,7 @@ var chai = require('chai');
 var expect = chai.expect;
 var ROOT = '../';
 
-var getCSVWords = require(ROOT + 'lib/getCSVWords');
+var getCSVWords = require(ROOT + '/getCSVWords');
 
 describe('getCSVWords', function() {
   it('splits a CSV string', function () {

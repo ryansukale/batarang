@@ -2,7 +2,7 @@ var chai = require('chai');
 var expect = chai.expect;
 var ROOT = '../';
 
-var excludeFromList = require(ROOT + 'lib/excludeFromList');
+var excludeFromList = require(ROOT + '/excludeFromList');
 
 describe('excludeFromList', function() {
   it('excludes items from a list based on an id', function () {

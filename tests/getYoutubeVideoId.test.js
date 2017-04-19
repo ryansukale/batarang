@@ -2,7 +2,7 @@ var chai = require('chai');
 var expect = chai.expect;
 var ROOT = '../';
 
-var getYoutubeVideoId = require(ROOT + 'lib/getYoutubeVideoId');
+var getYoutubeVideoId = require(ROOT + '/getYoutubeVideoId');
 
 describe('getYoutubeVideoId', function () {
   it('returns video id of a youtube video', function () {

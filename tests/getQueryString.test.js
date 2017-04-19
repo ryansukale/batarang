@@ -2,7 +2,7 @@ var chai = require('chai');
 var expect = chai.expect;
 var ROOT = '../';
 
-var getQueryString = require(ROOT + 'lib/getQueryString');
+var getQueryString = require(ROOT + '/getQueryString');
 
 describe('getQueryString', function () {
   it('returns the query string of a URL', function () {
