@@ -21,7 +21,8 @@ function cycle(arr) {
       index = getNextIndex();
       return {
         value: arr[index],
-        index: index
+        index: index,
+        done: false
       };
     },
 
@@ -29,7 +30,8 @@ function cycle(arr) {
       index = getPrevIndex();
       return {
         value: arr[index],
-        index: index
+        index: index,
+        done: false
       };
     }
   };

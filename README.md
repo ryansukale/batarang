@@ -113,17 +113,19 @@ arrayToMap(rows, selector);
 ##### cycle(Array)
 Returns an object that has 2 functions - `next()` and `prev()` that lets you cycle through the items in an array
 
+```js
 var items = ['a', 'b'];
 var iter = cycle(items);
-iter.next(); // { value: 'a', index: 0 }
-iter.next(); // { value: 'b', index: 1 }
-iter.next(); // { value: 'a', index: 0 }
+iter.next(); // { value: 'a', index: 0, done: false }
+iter.next(); // { value: 'b', index: 1, done: false }
+iter.next(); // { value: 'a', index: 0, done: false }
 
 var items = ['x', 'y'];
 var iter = cycle(items);
-iter.prev(); // { value: 'y', index: 1 }
-iter.prev(); // { value: 'x', index: 0 }
-iter.prev(); // { value: 'y', index: 1 }
+iter.prev(); // { value: 'y', index: 1, done: false }
+iter.prev(); // { value: 'x', index: 0, done: false }
+iter.prev(); // { value: 'y', index: 1, done: false }
+```
 
 ---
 
