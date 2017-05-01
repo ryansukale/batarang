@@ -80,17 +80,33 @@ sortByField(items, 'id', 'DESC');
 ```
 
 ##### arrayToMap(array, [fieldName='id'])
-Converts an array of objects into a hash, where the key is one of the object properties. This is useful when you want convert an array of data you recieve from the server into a lookup hash to show on the UI based on the some field.
+Converts an array of objects into a hash, where the key is one of the object properties. This is useful when you want convert an array of data you recieve from the server into a lookup hash to show on the UI based on the some field. The default key is 'id'.
 
 ```js
 var rows = [
-  {age: 10},
-  {age: 12},
-  {age: 14}
+  {id: 1, age: 10},
+  {id: 2, age: 12}
 ];
 
+arrayToMap(rows);
+// { 1: {id: 1, age: 10}, 2: {id: 2, age: 12} }
+
+// Using custom property as key
 arrayToMap(rows, 'age');
-// { 10: {age: 10}, 12: {age: 12}, 14: {age: 14} }
+// { 10: {id: 1, age: 10}, 12: {id: 2, age: 12} }
+
+var composite = [
+  {emp_id: 1, manager_id: 11},
+  {emp_id: 1, manager_id: 12}
+];
+
+function selector(item) {
+  return item.emp_id + '_' + item.manager_id;
+}
+
+// Using a selector function
+arrayToMap(rows, selector);
+// { '1_11': arr[0], '1_12': arr[1] }
 
 ```
 ---
