@@ -32,4 +32,22 @@ describe('arrayToMap', function () {
       14: arr[2]
     });
   });
+
+  it('uses a selector function to get the key', function () {
+    var arr = [
+      {emp_id: 1, manager_id: 11},
+      {emp_id: 1, manager_id: 12},
+      {emp_id: 2, manager_id: 22}
+    ];
+
+    function selector(item) {
+      return item.emp_id + '_' + item.manager_id;
+    }
+
+    expect(arrayToMap(arr, selector)).to.deep.equal({
+      '1_11': arr[0],
+      '1_12': arr[1],
+      '2_22': arr[2]
+    });
+  });
 });
