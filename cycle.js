@@ -38,10 +38,15 @@ function cycle(arr) {
     return next().value;
   }
 
+  function prevVal() {
+    return prev().value;
+  }
+
   return {
     next: next,
     prev: prev,
-    nextVal: nextVal
+    nextVal: nextVal,
+    prevVal: prevVal
   };
 }
 

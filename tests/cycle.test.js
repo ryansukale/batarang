@@ -34,4 +34,14 @@ describe('cycle', function() {
     expect(iter.nextVal()).to.deep.equal('c');
     expect(iter.nextVal()).to.deep.equal('a');
   });
+
+  it('calling prev() cycles backward through an array', function () {
+    var items = ['a', 'b', 'c'];
+    var iter = cycle(items);
+
+    expect(iter.prevVal()).to.deep.equal('c');
+    expect(iter.prevVal()).to.deep.equal('b');
+    expect(iter.prevVal()).to.deep.equal('a');
+    expect(iter.prevVal()).to.deep.equal('c');
+  });
 });
