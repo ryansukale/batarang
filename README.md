@@ -167,6 +167,21 @@ getHostNameFromUrl('https://www.youtube.com/watch?v=KFHccsaTakg');
 // www.youtube.com
 ```
 
+##### buildUrl(template, options = {})
+Constructs a url from a template string. Optionally pass `path` and `query` params as objects to be included in the url.
+
+```js
+var path = {id: 1, team_id: 2};
+var query = {page: 1, sort: 'name'};
+var basePath = 'https://api.com/users/{id}/teams/{team_id}';
+
+buildUrl(basePath, {path, query});
+
+// Output
+'https://api.com/users/1/teams/2?page=1&sort=name'
+```
+
+
 ##### getYoutubeVideoId(url)
 Given a youtube video URL, returns the its video id
 
@@ -187,11 +202,11 @@ getYoutubeVideoId(embedUrl); // ZRG1tWQN6e8
 ### Misc Utilities
 
 ##### capitalizeFirstChar(string)
-Capitalize the first character of a string.
+Capitalize the first character of a string. Keeps the rest of the string the same.
 
 ```js
-capitalizeFirstChar('examplestring');
-// Examplestring
+capitalizeFirstChar('exampLestRing');
+// ExampLestRing
 ```
 
 ##### getCSVWords(string)

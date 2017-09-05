@@ -6,6 +6,6 @@ var capitalizeFirstChar = require(ROOT + '/capitalizeFirstChar');
 
 describe('capitalizeFirstChar', function () {
   it('capitalizes the first character of as string', function () {
-    expect(capitalizeFirstChar('exampleString')).to.equal('ExampleString');
+    expect(capitalizeFirstChar('exampLeStRing')).to.equal('ExampLeStRing');
   });
 });
