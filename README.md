@@ -228,6 +228,10 @@ event = {keyCode: 1000};
 isEnterKey(event) // false
 ```
 
+##### slugify(text)
+Generates a hyphenated (url safe) form of a string
+
+slugify('my slug string'); // my-slug-string
 ---
 
 ##### reloadPage([boolean=false])
