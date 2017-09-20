@@ -22,30 +22,30 @@ npm run test
 ---
 
 ## Array
-* <a href="#pluckUniqueValues">`pluckUniqueValues`</a>
-* <a href="#swapArrayItems">`swapArrayItems`</a>
-* <a href="#excludeFromList">`excludeFromList`</a>
-* <a href="#sortByField">`sortByField`</a>
-* <a href="#arrayToMap">`arrayToMap`</a>
-* <a href="#cycle">`cycle`</a>
+* <a href="#pluckuniquevaluesarray-fieldnameid">`pluckUniqueValues`</a>
+* <a href="#waparrayitemsarray-number-number">`swapArrayItems`</a>
+* <a href="#excludefromlistarray-array-fieldnameid">`excludeFromList`</a>
+* <a href="#sortbyfieldarray-fieldname-orderasc">`sortByField`</a>
+* <a href="#arraytomaparray-fieldnameid">`arrayToMap`</a>
+* <a href="#cyclearray">`cycle`</a>
 
 ---
 
 ## URL
-* <a href="#getQueryString">`getQueryString`</a>
-* <a href="#getQueryParams">`getQueryParams`</a>
-* <a href="#getHostNameFromUrl">`getHostNameFromUrl`</a>
-* <a href="#buildUrl">`buildUrl`</a>
-* <a href="#getYoutubeVideoId">`getYoutubeVideoId`</a>
+* <a href="#getquerystringurl">`getQueryString`</a>
+* <a href="#getqueryparamsurl-key">`getQueryParams`</a>
+* <a href="#gethostnamefromurlurl">`getHostNameFromUrl`</a>
+* <a href="#buildurltemplate-options--">`buildUrl`</a>
+* <a href="#getyoutubevideoidurl">`getYoutubeVideoId`</a>
 
 ---
 
 ## MISC
-* <a href="#capitalizeFirstChar">`capitalizeFirstChar`</a>
-* <a href="#getCSVWords">`getCSVWords`</a>
-* <a href="#isEnterKey">`isEnterKey`</a>
-* <a href="#slugify">`slugify`</a>
-
+* <a href="#capitalizefirstcharstring">`capitalizeFirstChar`</a>
+* <a href="#getcsvwordsstring">`getCSVWords`</a>
+* <a href="#isenterkeyevent">`isEnterKey`</a>
+* <a href="#slugifytext">`slugify`</a>
+* <a href="#reloadpagebooleanfalse">`reloadPage`</a>
 
 ---
 
