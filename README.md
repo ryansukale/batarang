@@ -8,12 +8,44 @@ A utility belt of tiny javascript functions to attack not-so-everyday problems.
 
 `npm install batarang --save`
 
+// Require individual functions from the library 
+// so you only load what you need e.g.
+const getQueryString = require('batarang/getQueryString');
+
 ---
 
 ### Running tests
 ```
 npm run test
 ```
+
+---
+
+## Array
+* <a href="#pluckUniqueValues">`pluckUniqueValues`</a>
+* <a href="#swapArrayItems">`swapArrayItems`</a>
+* <a href="#excludeFromList">`excludeFromList`</a>
+* <a href="#sortByField">`sortByField`</a>
+* <a href="#arrayToMap">`arrayToMap`</a>
+* <a href="#cycle">`cycle`</a>
+
+---
+
+## URL
+* <a href="#getQueryString">`getQueryString`</a>
+* <a href="#getQueryParams">`getQueryParams`</a>
+* <a href="#getHostNameFromUrl">`getHostNameFromUrl`</a>
+* <a href="#buildUrl">`buildUrl`</a>
+* <a href="#getYoutubeVideoId">`getYoutubeVideoId`</a>
+
+---
+
+## MISC
+* <a href="#capitalizeFirstChar">`capitalizeFirstChar`</a>
+* <a href="#getCSVWords">`getCSVWords`</a>
+* <a href="#isEnterKey">`isEnterKey`</a>
+* <a href="#slugify">`slugify`</a>
+
 
 ---
 
@@ -231,7 +263,9 @@ isEnterKey(event) // false
 ##### slugify(text)
 Generates a hyphenated (url safe) form of a string
 
-slugify('my slug string'); // my-slug-string
+slugify('my slug string');
+// my-slug-string
+
 ---
 
 ##### reloadPage([boolean=false])
