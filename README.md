@@ -8,12 +8,44 @@ A utility belt of tiny javascript functions to attack not-so-everyday problems.
 
 `npm install batarang --save`
 
+// Require individual functions from the library 
+// so you only load what you need e.g.
+const getQueryString = require('batarang/getQueryString');
+
 ---
 
 ### Running tests
 ```
 npm run test
 ```
+
+---
+
+## Array
+* <a href="#pluckuniquevaluesarray-fieldnameid">`pluckUniqueValues`</a>
+* <a href="#waparrayitemsarray-number-number">`swapArrayItems`</a>
+* <a href="#excludefromlistarray-array-fieldnameid">`excludeFromList`</a>
+* <a href="#sortbyfieldarray-fieldname-orderasc">`sortByField`</a>
+* <a href="#arraytomaparray-fieldnameid">`arrayToMap`</a>
+* <a href="#cyclearray">`cycle`</a>
+
+---
+
+## URL
+* <a href="#getquerystringurl">`getQueryString`</a>
+* <a href="#getqueryparamsurl-key">`getQueryParams`</a>
+* <a href="#gethostnamefromurlurl">`getHostNameFromUrl`</a>
+* <a href="#buildurltemplate-options--">`buildUrl`</a>
+* <a href="#getyoutubevideoidurl">`getYoutubeVideoId`</a>
+
+---
+
+## MISC
+* <a href="#capitalizefirstcharstring">`capitalizeFirstChar`</a>
+* <a href="#getcsvwordsstring">`getCSVWords`</a>
+* <a href="#isenterkeyevent">`isEnterKey`</a>
+* <a href="#slugifytext">`slugify`</a>
+* <a href="#reloadpagebooleanfalse">`reloadPage`</a>
 
 ---
 
@@ -231,7 +263,9 @@ isEnterKey(event) // false
 ##### slugify(text)
 Generates a hyphenated (url safe) form of a string
 
-slugify('my slug string'); // my-slug-string
+slugify('my slug string');
+// my-slug-string
+
 ---
 
 ##### reloadPage([boolean=false])
