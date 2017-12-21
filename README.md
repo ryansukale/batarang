@@ -13,11 +13,20 @@ OR
 `npm install batarang --save`
 
 Require individual functions from the library so you only load what you need e.g.
-```const getQueryString = require('batarang/getQueryString');```
+
+```
+var getQueryString = require('batarang/getQueryString');
+```
 
 ---
 
 ### Running tests
+```
+yarn test
+```
+
+OR
+
 ```
 npm run test
 ```
@@ -26,7 +35,7 @@ npm run test
 
 ## Array
 * <a href="#pluckuniquevaluesarray-fieldnameid">`pluckUniqueValues`</a>
-* <a href="#waparrayitemsarray-number-number">`swapArrayItems`</a>
+* <a href="#swaparrayitemsarray-number-number">`swapArrayItems`</a>
 * <a href="#excludefromlistarray-array-fieldnameid">`excludeFromList`</a>
 * <a href="#sortbyfieldarray-fieldname-orderasc">`sortByField`</a>
 * <a href="#arraytomaparray-fieldnameid">`arrayToMap`</a>
@@ -44,7 +53,7 @@ npm run test
 ---
 
 ## MISC
-* <a href="#createRangeWindow">`createRangeWindow`</a>
+* <a href="#getRangeWindow">`getRangeWindow`</a>
 * <a href="#capitalizefirstcharstring">`capitalizeFirstChar`</a>
 * <a href="#getcsvwordsstring">`getCSVWords`</a>
 * <a href="#isenterkeyevent">`isEnterKey`</a>
@@ -237,7 +246,7 @@ getYoutubeVideoId(embedUrl); // ZRG1tWQN6e8
 
 ### Misc Utilities
 
-##### createRangeWindow(index, maxIndex, size)
+##### getRangeWindow(index, maxIndex, size)
 Given `index`, return an array of maximum length `size`, such that 
 - `index` is present in the array.
 - items to the right of the `index` are larger than index.
@@ -246,10 +255,10 @@ Given `index`, return an array of maximum length `size`, such that
 This is useful for creating buttons that represent page numbers in a pagination toolbar.
 
 ```js
-createRangeWindow(0, 10, 4) // [0, 1, 2, 3]
-createRangeWindow(0, 2, 4) // [0, 1, 2]
-createRangeWindow(2, 3, 4) // [0, 1, 2, 3]
-createRangeWindow(3, 3, 2) // [2, 3]
+getRangeWindow(0, 10, 4) // [0, 1, 2, 3]
+getRangeWindow(0, 2, 4) // [0, 1, 2]
+getRangeWindow(2, 3, 4) // [0, 1, 2, 3]
+getRangeWindow(3, 3, 2) // [2, 3]
 ```
 
 ##### capitalizeFirstChar(string)
