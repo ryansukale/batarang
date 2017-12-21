@@ -1,4 +1,4 @@
-function createRangeWindow(index, maxIndex, size) {
+function getRangeWindow(index, maxIndex, size) {
   var items = [index];
   var remaining = size - 1;
 
@@ -18,4 +18,4 @@ function createRangeWindow(index, maxIndex, size) {
   return items;
 }
 
-module.exports = createRangeWindow;
+module.exports = getRangeWindow;
