@@ -1,6 +1,6 @@
-function createRangeWindow(index, maxIndex, windowSize) {
+function createRangeWindow(index, maxIndex, size) {
   var items = [index];
-  var remaining = windowSize - 1;
+  var remaining = size - 1;
 
   var upperBoundary = index + remaining > maxIndex ? maxIndex : index + remaining;
   
@@ -8,11 +8,11 @@ function createRangeWindow(index, maxIndex, windowSize) {
     items.push(i);
   }
 
-  if (items.length === windowSize) {
+  if (items.length === size) {
     return items;
   }
 
-  for (var j = index - 1; j >-1 && items.length < windowSize; j--) {
+  for (var j = index - 1; j >-1 && items.length < size; j--) {
     items.unshift(j);
   }
   return items;

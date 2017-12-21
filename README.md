@@ -233,6 +233,21 @@ getYoutubeVideoId(embedUrl); // ZRG1tWQN6e8
 
 ### Misc Utilities
 
+##### createRangeWindow(index, maxIndex, size)
+Given `index`, return an array of maximum length `size`, such that 
+- `index` is present in the array.
+- items to the right of the `index` are larger than index.
+- items on the left of the `index` are smaller than index.
+
+This is useful for creating buttons that represent page numbers in a pagination toolbar.
+
+```js
+createRangeWindow(0, 10, 4) // [0, 1, 2, 3]
+createRangeWindow(0, 2, 4) // [0, 1, 2]
+createRangeWindow(2, 3, 4) // [0, 1, 2, 3]
+createRangeWindow(3, 3, 2) // [2, 3]
+```
+
 ##### capitalizeFirstChar(string)
 Capitalize the first character of a string. Keeps the rest of the string the same.
 
