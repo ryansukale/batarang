@@ -39,7 +39,7 @@ function getQueryParams(url, key) {
   }
 
   Object.keys(qd).forEach(function (key) {
-    let value = qd[key];
+    var value = qd[key];
     if (value && value.length === 1) {
         qd[key] = value[0];
     }
