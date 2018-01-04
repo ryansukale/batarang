@@ -38,7 +38,7 @@ function getQueryParams(url, key) {
     return value;
   }
 
-  Object.keys(qd).forEach((key) => {
+  Object.keys(qd).forEach(function (key) {
     let value = qd[key];
     if (value && value.length === 1) {
         qd[key] = value[0];
