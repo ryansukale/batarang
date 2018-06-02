@@ -156,7 +156,7 @@ arrayToMap(rows, selector);
 ```
 
 ##### cycle(Array)
-Returns an object that has 4 functions - `next()`, `nextVal()`, `prev()` and `prevVal()` that lets you cycle through the items in an array
+Returns an object that has 4 functions - `next()`, `nextVal()`, `prev()` and `prevVal()` that lets you cycle through the items in an array. This `next` and `previous` function return values that are compatible with the [ES6 iteratable protocal](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols) in mind. For regular usage, you are more likely to go with the `nextVal` and `prevVal` functions.
 
 ```js
 var items1 = ['a', 'b'];
@@ -194,6 +194,8 @@ Given a url, and a key, returns the values of the key if it is present as a quer
 Single values are returned as strings
 Multiple values are returned as arrays
 
+This function handles the basic use case for processing the query params. If you need something more advanced, look at [qs](https://www.npmjs.com/package/qs).
+
 ```js
 var url = 'https://www.youtube.com/watch?v=CqlNSVZpbAg';
 var multiValues = ''https://www.example.com?x=1&x=11&y=2&z=3'';
@@ -213,7 +215,7 @@ getHostNameFromUrl('https://www.youtube.com/watch?v=KFHccsaTakg');
 ```
 
 ##### createUrl(urlPattern, options = {})
-Constructs a url from a pattern. Optionally pass `params` and `query` in the options to be processed for generating the URL. Use this function instead of `buildUrl` since its the more standard way of defining a urlPattern
+Constructs a url from a pattern. Optionally pass `params` and `query` in the options to be processed for generating the URL.
 
 ```js
 var params = {id: 1, team_id: 2};
