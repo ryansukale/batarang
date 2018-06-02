@@ -6,8 +6,8 @@ var lookup = {};
 function createUrl(urlPattern, {params, query}) {
   var base;
   if (!isEmpty(params)) {
-    var compiledUrlPattern = lookup[urlPattern] || pathToRegexp.compile(urlPattern);
-    base = compiledUrlPattern(params);
+    lookup[urlPattern] = lookup[urlPattern] || pathToRegexp.compile(urlPattern);
+    base = lookup[urlPattern](params);
   } else {
     base = urlPattern;
   }
