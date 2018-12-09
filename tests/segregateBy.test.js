@@ -14,11 +14,11 @@ describe('segregateBy', function() {
     {name: 'd', val: 4}
   ];
 
-  it('segregates an array based on condition defined by a function', function () {
-    function condition(item) { return item.val % 2; };
+  it('segregates an array based on a the value returned by a conditional function', function () {
+    function condition(item) { return item.val % 2 === 0 ? 'even' : 'odd'; };
     var result = segregateBy(condition, items);
 
-    expect(result['0']).to.deep.equal([{name: 'b', val: 2}, {name: 'd', val: 4}]);
-    expect(result['1']).to.deep.equal([{name: 'a', val: 1}, {name: 'c', val: 3}]);
+    expect(result.even).to.deep.equal([{name: 'b', val: 2}, {name: 'd', val: 4}]);
+    expect(result.odd).to.deep.equal([{name: 'a', val: 1}, {name: 'c', val: 3}]);
   });
 });

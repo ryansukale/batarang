@@ -40,6 +40,8 @@ npm run test
 * <a href="#sortbyfieldarray-fieldname-orderasc">`sortByField`</a>
 * <a href="#arraytomaparray-fieldnameid">`arrayToMap`</a>
 * <a href="#cyclearray">`cycle`</a>
+* <a href="#segregate">`segregate`</a>
+* <a href="#segregateby">`segregateBy`</a>
 
 ---
 
@@ -174,6 +176,43 @@ iter2.prev(); // { value: 'x', index: 0, done: false }
 iter2.prev(); // { value: 'y', index: 1, done: false }
 
 iter2.prevVal(); // 'x'
+```
+
+##### segregate(groupingArray, itemArray)
+Divides the item array into smaller arrays whose sizes are specified in the grouping array. Returns an array. E.g.
+
+```js
+var items = ['a', 'b', 'c', 'd', 'e'];
+var groups = [1, 2, 2]; // Intended size of each sub array
+
+var result = segregate(groups, items);
+
+// result[0] = ['a']
+// result[1] = ['b', 'c']
+// result[2] = ['d', 'e']
+```
+
+
+##### segregate(function, itemArray)
+Similar to segregate, but groups items based on an evaluation of the conditional function. Each item of the array is passed to the function for evaluation. Returns a hash. E.g.
+
+```js
+var items = [
+  {name: 'a', val: 1},
+  {name: 'b', val: 2},
+  {name: 'c', val: 3},
+  {name: 'd', val: 4}
+];
+
+// Checks if a function is even or odd
+function condition(item) { return item.val % 2 === 0 ? 'even' : 'odd'; };
+var result = segregateBy(condition, items);
+
+// result
+// {
+//    even: [{name: 'b', val: 2}, {name: 'd', val: 4}],
+//    odd: [{name: 'a', val: 1}, {name: 'c', val: 3}]
+// }
 ```
 
 ---
