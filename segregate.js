@@ -22,30 +22,18 @@ function getGroups(groups, items) {
 // It does an uneven split of any generic item array into groups.
 // The function signature uses an order that will be more "functional", so data last.
 function segregate(condition, items) {
-  if (Array.isArray(condition)) {
-    var initialValue = {nextIndex: 0, groups: []};
-    var distribution = getGroups(condition, items);
+  var initialValue = {nextIndex: 0, groups: []};
+  var distribution = getGroups(condition, items);
 
-    return distribution.reduce(function(acc, count) {
-      var nextIndex = acc.nextIndex;
-      var groups = acc.groups;
+  return distribution.reduce(function(acc, count) {
+    var nextIndex = acc.nextIndex;
+    var groups = acc.groups;
 
-      groups.push(items.slice(nextIndex, nextIndex + count))
-
-      return {
-        nextIndex: nextIndex + count,
-        groups: groups
-      };
-    }, initialValue).groups;
-  }
-
-  if (typeof condition === 'function') {
-    return items.reduce((acc, item) => {
-      const key = condition(item);
-      acc[key] = (acc[key] || []).concat(item);
-      return acc;
-    }, {});
-  }
+    return {
+      nextIndex: nextIndex + count,
+      groups: groups.concat([items.slice(nextIndex, nextIndex + count)])
+    };
+  }, initialValue).groups;
 }
 
 
