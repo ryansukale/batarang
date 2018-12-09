@@ -40,8 +40,8 @@ npm run test
 * <a href="#sortbyfieldarray-fieldname-orderasc">`sortByField`</a>
 * <a href="#arraytomaparray-fieldnameid">`arrayToMap`</a>
 * <a href="#cyclearray">`cycle`</a>
-* <a href="#segregate">`segregate`</a>
-* <a href="#segregateby">`segregateBy`</a>
+* <a href="#segregategroupingarray-itemarray">`segregate`</a>
+* <a href="#segregatebyfunction-itemarray">`segregateBy`</a>
 
 ---
 
@@ -193,7 +193,7 @@ var result = segregate(groups, items);
 ```
 
 
-##### segregate(function, itemArray)
+##### segregateBy(function, itemArray)
 Similar to segregate, but groups items based on an evaluation of the conditional function. Each item of the array is passed to the function for evaluation. Returns a hash. E.g.
 
 ```js
