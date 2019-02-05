@@ -1,5 +1,3 @@
-var pathToRegexp = require('path-to-regexp');
-var isEmpty = require('lodash/isEmpty');
 var createUrl = require('./createUrl');
 
 function createRouter(routes) {
@@ -10,7 +8,7 @@ function createRouter(routes) {
       throw new Error('No route found for the name "' + name + '"');
     }
 
-    return isEmpty(options) ? path : createUrl(path, options);
+    return options ? createUrl(path, options) : path;
   }
 
   return {

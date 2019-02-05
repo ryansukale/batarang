@@ -269,7 +269,7 @@ createUrl(urlPattern, {params, query});
 ```
 
 ##### createRouter(routes)
-Returns a `router` object for the given routes.
+Creates a `router` object from a hash of named routes i.e. your sitemap. Named routes let you access the url patterns of your application all throughout your code by simply using a name and offload the actual url construction with parameters and query strings to the `router.get` method.
 
 ```js
 const router = createRouter({
