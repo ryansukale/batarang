@@ -50,6 +50,7 @@ npm run test
 * <a href="#getqueryparamsurl-key">`getQueryParams`</a>
 * <a href="#gethostnamefromurlurl">`getHostNameFromUrl`</a>
 * <a href="#createurlurlpattern-options--">`createUrl`</a>
+* <a href="#createrouterroutes">`createRouter`</a>
 * <a href="#getyoutubevideoidurl">`getYoutubeVideoId`</a>
 
 ---
@@ -267,6 +268,25 @@ createUrl(urlPattern, {params, query});
 'https://api.com/users/1/teams/2?page=1&sort=name'
 ```
 
+##### createRouter(routes)
+Creates a `router` object from a hash of named routes i.e. your sitemap. Named routes let you access the url patterns of your application all throughout your code by simply using a name and offload the actual url construction with parameters and query strings to the `router.get` method.
+
+```js
+const router = createRouter({
+  'products': '/products',
+  'product': '/products/:p'
+  'product_items': '/products/:p/items'
+});
+
+router.get('product_items')
+//=> /products/:p/items
+
+router.get('products', {query: {page: 1, sort: 'name'}});
+//=> '/products?page=1&sort=name'
+
+router.get('product_items', {query: {sort: 'name'}, params: p: 'boat'});
+//=> '/products/boat/items&sort=name'
+```
 
 ##### getYoutubeVideoId(url)
 Given a youtube video URL, returns the its video id
@@ -288,7 +308,7 @@ getYoutubeVideoId(embedUrl); // ZRG1tWQN6e8
 ### Misc Utilities
 
 ##### getRangeWindow(index, maxIndex, size)
-Given `index`, return an array of maximum length `size`, such that 
+Given `index`, return an array of maximum length `size`, such that
 - `index` is present in the array.
 - items to the right of the `index` are larger than index.
 - items on the left of the `index` are smaller than index.
