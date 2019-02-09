@@ -4,7 +4,7 @@ var ROOT = '../';
 
 var createUrl = require(ROOT + 'createUrl');
 
-describe('#createUrl', function () {
+describe('createUrl', function () {
   const params = {id: 1, team_id: 2};
   const query = {page: 1, sort: 'name'};
   const urlPattern = 'https://api.com/users/:id/teams/:team_id';
