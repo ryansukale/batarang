@@ -49,7 +49,7 @@ npm run test
 * <a href="#getquerystringurl">`getQueryString`</a>
 * <a href="#getqueryparamsurl-key">`getQueryParams`</a>
 * <a href="#gethostnamefromurlurl">`getHostNameFromUrl`</a>
-* <a href="#createurlurlpattern-options--">`createUrl`</a>
+* <a href="#createurlurlpattern-options-config">`createUrl`</a>
 * <a href="#createrouterroutes">`createRouter`</a>
 * <a href="#getyoutubevideoidurl">`getYoutubeVideoId`</a>
 
@@ -259,8 +259,8 @@ Constructs a url from a pattern. Optionally pass `params` and `query` in the opt
 
 - options.query: An object that will be converted to queryString
 - options.params: An object whose keys will be looked up in the ur pattern and replaced by its values.
-- config.query: Configuration for options.query processing. It uses the (stringify function in the query-string)[https://github.com/sindresorhus/query-string#stringifyobject-options]. Useful when you want to parse different array formats etc.
-- config.params: Configuration for options.params processing. It uses the (compile function from path-to-regexp)[https://github.com/pillarjs/path-to-regexp#compile-reverse-path-to-regexp]
+- config.query: Configuration for options.query processing. It uses the [stringify function in the query-string](https://github.com/sindresorhus/query-string#stringifyobject-options). Useful when you want to parse different array formats etc.
+- config.params: Configuration for options.params processing. It uses the [compile function from path-to-regexp](https://github.com/pillarjs/path-to-regexp#compile-reverse-path-to-regexp)
 
 ```js
 var params = {id: 1, team_id: 2};
