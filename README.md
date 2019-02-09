@@ -254,8 +254,13 @@ getHostNameFromUrl('https://www.youtube.com/watch?v=KFHccsaTakg');
 // www.youtube.com
 ```
 
-##### createUrl(urlPattern, options = {})
+##### createUrl(urlPattern, [options], [config])
 Constructs a url from a pattern. Optionally pass `params` and `query` in the options to be processed for generating the URL.
+
+- options.query: An object that will be converted to queryString
+- options.params: An object whose keys will be looked up in the ur pattern and replaced by its values.
+- config.query: Configuration for options.query processing. It uses the (stringify function in the query-string)[https://github.com/sindresorhus/query-string#stringifyobject-options]. Useful when you want to parse different array formats etc.
+- config.params: Configuration for options.params processing. It uses the (compile function from path-to-regexp)[https://github.com/pillarjs/path-to-regexp#compile-reverse-path-to-regexp]
 
 ```js
 var params = {id: 1, team_id: 2};
@@ -270,6 +275,11 @@ createUrl(urlPattern, {params, query});
 
 ##### createRouter(routes)
 Creates a `router` object from a hash of named routes i.e. your sitemap. Named routes let you access the url patterns of your application all throughout your code by simply using a name and offload the actual url construction with parameters and query strings to the `router.get` method.
+
+**router.get(pathName, [options], [config])**
+- pathName: The name of the route you want to retrieve from the sitemap.
+- options: A hash of of the structure {params, query}. It uses `createUrl` as documented above to generate the final URL.
+- config: The optional configuration that will be passed to `createUrl` for transforming options.query and options.params. See `createUrl` for more details.
 
 ```js
 const router = createRouter({

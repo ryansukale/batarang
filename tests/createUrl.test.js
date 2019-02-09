@@ -10,20 +10,53 @@ describe('createUrl', function () {
   const urlPattern = 'https://api.com/users/:id/teams/:team_id';
 
   it('sets the path params only', function () {
-    expect(createUrl(urlPattern, {params})).to.deep.equal(
+    expect(createUrl(urlPattern, {params: params})).to.deep.equal(
       'https://api.com/users/1/teams/2'
     );
   });
 
   it('sets the query params only', function () {
-    expect(createUrl(urlPattern, {query})).to.deep.equal(
+    expect(createUrl(urlPattern, {query: query})).to.deep.equal(
       'https://api.com/users/:id/teams/:team_id?page=1&sort=name'
     );
   });
 
   it('sets the path and query params', function () {
-    expect(createUrl(urlPattern, {params, query})).to.deep.equal(
+    expect(createUrl(urlPattern, {params: params, query: query})).to.deep.equal(
       'https://api.com/users/1/teams/2?page=1&sort=name'
+    );
+  });
+
+  it('uses custom config for query string', function () {
+    const config = {
+      query: {arrayFormat: 'bracket'}
+    };
+
+    expect(
+      createUrl(urlPattern, {
+        params: params,
+        query: {foo: [1,2,3]}
+      }, config)
+    ).to.deep.equal(
+      'https://api.com/users/1/teams/2?foo[]=1&foo[]=2&foo[]=3'
+    );
+  });
+
+  // Pending https://github.com/pillarjs/path-to-regexp/issues/177
+  xit('uses custom config for params', function () {
+    const config = {
+      params: {
+        encode: function (value) { return value; }
+      }
+    };
+
+    expect(
+      createUrl('/user/:id', {
+        params: { id: ':/' },
+        query: query
+      }, config)
+    ).to.deep.equal(
+      '/user/:/?page=1&sort=name'
     );
   });
 });
