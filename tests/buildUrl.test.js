@@ -4,7 +4,7 @@ var ROOT = '../';
 
 var buildUrl = require(ROOT + 'buildUrl');
 
-describe('#buildUrl', function () {
+describe('buildUrl', function () {
   const path = {id: 1, team_id: 2};
   const query = {page: 1, sort: 'name'};
   const basePath = 'https://api.com/users/{id}/teams/{team_id}';

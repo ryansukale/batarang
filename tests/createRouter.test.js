@@ -4,7 +4,7 @@ var ROOT = '../';
 
 var createRouter = require(ROOT + 'createRouter');
 
-describe('#createRouter', function () {
+describe('createRouter', function () {
   const router = createRouter({
     'products': '/products',
     'product_items': '/products/:p/items'
