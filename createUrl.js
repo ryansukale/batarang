@@ -7,7 +7,7 @@ function parseConfig(config) {
   config.params = config.params || {};
   config.query = config.query || {};
 
-  if (!config.encode) {
+  if (config.encode === false) {
     config.params.encode = (value) => value;
     config.query.encode = false;
   }
