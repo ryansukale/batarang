@@ -4,10 +4,10 @@ var queryString = require('query-string');
 var lookup = {};
 
 function parseConfig(config) {
-  if (!config.encode) {
-    config.params = config.params || {};
-    config.query = config.query || {};
+  config.params = config.params || {};
+  config.query = config.query || {};
 
+  if (!config.encode) {
     config.params.encode = (value) => value;
     config.query.encode = false;
   }
