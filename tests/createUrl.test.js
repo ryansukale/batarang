@@ -54,4 +54,15 @@ describe('createUrl', function () {
       '/user/foo/b$a?back=http://back.com'
     );
   });
+
+  it('keeps encoding by default', function () {
+    expect(
+      createUrl('/user/:id(.*)', {
+        params: { id: 'foo/b$a' },
+        query: {back: 'http://back.com'}
+      })
+    ).to.deep.equal(
+      '/user/foo%2Fb%24a?back=http%3A%2F%2Fback.com'
+    );
+  });
 });

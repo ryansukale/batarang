@@ -261,16 +261,18 @@ Constructs a url from a pattern. Optionally pass `params` and `query` in the opt
 - options.params: An object whose keys will be looked up in the ur pattern and replaced by its values.
 - config.query: Configuration for options.query processing. It uses the [stringify function in the query-string](https://github.com/sindresorhus/query-string#stringifyobject-options). Useful when you want to parse different array formats etc.
 - config.params: Configuration for options.params processing. It uses the [compile function from path-to-regexp](https://github.com/pillarjs/path-to-regexp#compile-reverse-path-to-regexp)
+- config.encode: A boolean that if set to `false` will disable encoding for both, `query` and `params`.
 
 ```js
-var params = {id: 1, team_id: 2};
+var params = {id: 'r$', team_id: 2};
 var query = {page: 1, sort: 'name'};
 var urlPattern = 'https://api.com/users/:id/teams/:team_id';
 
 createUrl(urlPattern, {params, query});
+// Output => 'https://api.com/users/r%24/teams/2?page=1&sort=name'
 
-// Output
-'https://api.com/users/1/teams/2?page=1&sort=name'
+createUrl(urlPattern, {params, query}, {encode: false});
+// Output => 'https://api.com/users/r$/teams/2?page=1&sort=name'
 ```
 
 ##### createRouter(routes)
