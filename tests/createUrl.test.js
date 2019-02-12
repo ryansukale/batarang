@@ -42,8 +42,7 @@ describe('createUrl', function () {
     );
   });
 
-  // Pending https://github.com/pillarjs/path-to-regexp/issues/177
-  it('uses custom config for params', function () {
+  it('skip encoding for params and query', function () {
     const config = { encode: false };
 
     expect(
