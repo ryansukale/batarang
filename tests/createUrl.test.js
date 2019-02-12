@@ -42,21 +42,27 @@ describe('createUrl', function () {
     );
   });
 
-  // Pending https://github.com/pillarjs/path-to-regexp/issues/177
-  xit('uses custom config for params', function () {
-    const config = {
-      params: {
-        encode: function (value) { return value; }
-      }
-    };
+  it('skip encoding for params and query', function () {
+    const config = { encode: false };
 
     expect(
-      createUrl('/user/:id', {
-        params: { id: ':/' },
-        query: query
+      createUrl('/user/:id(.*)', {
+        params: { id: 'foo/b$a' },
+        query: {back: 'http://back.com'}
       }, config)
     ).to.deep.equal(
-      '/user/:/?page=1&sort=name'
+      '/user/foo/b$a?back=http://back.com'
+    );
+  });
+
+  it('keeps encoding by default', function () {
+    expect(
+      createUrl('/user/:id(.*)', {
+        params: { id: 'foo/b$a' },
+        query: {back: 'http://back.com'}
+      })
+    ).to.deep.equal(
+      '/user/foo%2Fb%24a?back=http%3A%2F%2Fback.com'
     );
   });
 });
