@@ -3,12 +3,16 @@ var isEmpty = require('lodash/isEmpty');
 var queryString = require('query-string');
 var lookup = {};
 
+function decoder(v) {
+  return v;
+}
+
 function parseConfig(config) {
   config.params = config.params || {};
   config.query = config.query || {};
 
   if (config.encode === false) {
-    config.params.encode = (value) => value;
+    config.params.encode = decoder;
     config.query.encode = false;
   }
 
