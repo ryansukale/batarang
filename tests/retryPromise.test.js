@@ -15,6 +15,19 @@ function validator(d) {
 }
 
 describe('retryPromise', () => {
+  it('does not retry a function on success', (done) => {
+    var method = sinon
+      .fake
+      .returns(Promise.resolve(1));
+
+    var getData = retryPromise(method);
+
+    getData().then(() => {
+      expect(method.callCount).to.equal(1);
+      done();
+    });
+  });
+
   it('retries a function once on failure', (done) => {
     var method = sinon
       .fake
