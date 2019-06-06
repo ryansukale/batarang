@@ -10,11 +10,12 @@ function createSpy() {
   return sinon.fake.returns(Promise.resolve(response));
 }
 
+function validator(d) {
+  return d.statusCode !== 419;
+}
+
 describe('retryPromise', () => {
   it('retries the function a given number of times if the response is invalid', (done) => {
-    function validator(d) {
-      return d.statusCode !== 419;
-    }
     var method = createSpy();
     var options = {
       validator: validator,
@@ -23,31 +24,39 @@ describe('retryPromise', () => {
     var getData = retryPromise(method, options);
 
     getData().catch(() => {
-      console.log('here')
       expect(method.callCount).to.equal(4);
       done();
     });
   });
 
-  // it('passes arguments upon retryPromise', (done) => {
-  //   var method = createSpy();
-  //   var getData = retryPromise(method, (d) => d.statusCode !== 419, 1);
+  it('passes arguments to retryPromise', (done) => {
+    var method = createSpy();
+    var options = {
+      validator: validator,
+      attempts: 1
+    };
+    var getData = retryPromise(method, options);
 
-  //   getData('hello').catch(() => {
-  //     expect(method.calls.argsFor(0)).toEqual(['hello']);
-  //     expect(method.calls.argsFor(1)).toEqual(['hello']);
-  //     done();
-  //   });
-  // });
+    getData('hello', 'world').catch(() => {
+      expect(method.getCall(0).calledWith('hello', 'world')).to.be.true;
+      expect(method.getCall(1).calledWith('hello', 'world')).to.be.true;
+      done();
+    });
+  });
 
-  // it('passes different arguments upon retryPromise if specified', (done) => {
-  //   var method = createSpy();
-  //   var getData = retryPromise(method, (d) => d.statusCode !== 419, 1, 'world');
+  it('passes different arguments upon retryPromise if specified', (done) => {
+    var method = createSpy();
+    var options = {
+      validator: validator,
+      attempts: 1,
+      retryArgs: ['Dark', 'Knight']
+    };
+    var getData = retryPromise(method, options);
 
-  //   getData('hello').catch(() => {
-  //     expect(method.calls.argsFor(0)).toEqual(['hello']);
-  //     expect(method.calls.argsFor(1)).toEqual(['world']);
-  //     done();
-  //   });
-  // });
+    getData('hello', 'world').catch(() => {
+      expect(method.getCall(0).calledWith('hello', 'world')).to.be.true;
+      expect(method.getCall(1).calledWith('Dark', 'Knight')).to.be.true;
+      done();
+    });
+  });
 });
