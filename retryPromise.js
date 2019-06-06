@@ -1,13 +1,14 @@
 function defaultValidator() { return true; }
 
 function retryPromise(source, options) {
+  options = options || {};
   var validator = options.validator || defaultValidator;
-  var attempts = options.attempts || 1;
-  var retryArgs = options.retryArgs || [];
+  var retries = options.retries || 1;
+  var retryArgs = options.retryArgs;
   var retryCount = 0;
 
   function shouldContinue() {
-    return attempts > retryCount ;
+    return retries > retryCount ;
   }
   
   return function retryOnInvalid() {
@@ -15,10 +16,10 @@ function retryPromise(source, options) {
     
     function retry() {
       if (!shouldContinue()) {
-        throw new Error('Method ' + source.name + ' failed after retrying ' + attempts + ' times');
+        throw new Error('Method ' + source.name + ' failed after ' + retries + ' retries');
       }
       retryCount += 1;
-      var methodArgs = retryArgs.length > 0 ? retryArgs : args;
+      var methodArgs = retryArgs || args;
       return retryOnInvalid.apply(null, methodArgs);
     }
 

@@ -6,20 +6,54 @@ var ROOT = '../';
 var retryPromise = require(ROOT + 'retryPromise');
 
 function createSpy() {
-  var response = {statusCode: 419};
+  var response = {statusCode: 666};
   return sinon.fake.returns(Promise.resolve(response));
 }
 
 function validator(d) {
-  return d.statusCode !== 419;
+  return d.statusCode !== 666;
 }
 
-describe.only('retryPromise', () => {
-  it('retries the function a given number of times if the response is invalid', (done) => {
+describe('retryPromise', () => {
+  it('retries a function once on failure', (done) => {
+    var method = sinon
+      .fake
+      .returns(Promise.reject('failed'));
+
+    var getData = retryPromise(method);
+
+    getData().catch(() => {
+      expect(method.callCount).to.equal(2);
+      done();
+    });
+  });
+
+  it('retries a few times on failure if specified', (done) => {
+    var method = sinon
+      .fake
+      .returns(Promise.reject('failed'));
+
+    var options = {
+      validator: validator,
+      retries: 2,
+      retryArgs: ['Dark', 'Knight']
+    };
+    var getData = retryPromise(method, options);
+
+    getData('hello', 'world').catch(() => {
+      expect(method.callCount).to.equal(3);
+      expect(method.getCall(0).calledWith('hello', 'world')).to.be.true;
+      expect(method.getCall(1).calledWith('Dark', 'Knight')).to.be.true;
+      expect(method.getCall(2).calledWith('Dark', 'Knight')).to.be.true;
+      done();
+    });
+  });
+
+  it('retries the function a few times based on custom validator', (done) => {
     var method = createSpy();
     var options = {
       validator: validator,
-      attempts: 3
+      retries: 3
     };
     var getData = retryPromise(method, options);
 
@@ -29,11 +63,10 @@ describe.only('retryPromise', () => {
     });
   });
 
-  it('passes same arguments to retryPromise by default', (done) => {
+  it('passes same arguments to retries by default', (done) => {
     var method = createSpy();
     var options = {
-      validator: validator,
-      attempts: 1
+      validator: validator
     };
     var getData = retryPromise(method, options);
 
@@ -45,11 +78,11 @@ describe.only('retryPromise', () => {
     });
   });
 
-  it('passes custom arguments upon retryPromise if specified', (done) => {
+  it('passes custom arguments to retries if specified', (done) => {
     var method = createSpy();
     var options = {
       validator: validator,
-      attempts: 1,
+      retries: 1,
       retryArgs: ['Dark', 'Knight']
     };
     var getData = retryPromise(method, options);
@@ -58,27 +91,6 @@ describe.only('retryPromise', () => {
       expect(method.callCount).to.equal(2);
       expect(method.getCall(0).calledWith('hello', 'world')).to.be.true;
       expect(method.getCall(1).calledWith('Dark', 'Knight')).to.be.true;
-      done();
-    });
-  });
-
-  it('retries on error', (done) => {
-    var method = sinon
-      .fake
-      .returns(Promise.reject('failed'));
-
-    var options = {
-      validator: validator,
-      attempts: 2,
-      retryArgs: ['Dark', 'Knight']
-    };
-    var getData = retryPromise(method, options);
-
-    getData('hello', 'world').catch(() => {
-      expect(method.callCount).to.equal(3);
-      expect(method.getCall(0).calledWith('hello', 'world')).to.be.true;
-      expect(method.getCall(1).calledWith('Dark', 'Knight')).to.be.true;
-      expect(method.getCall(2).calledWith('Dark', 'Knight')).to.be.true;
       done();
     });
   });
