@@ -1,6 +1,6 @@
 {
   "name": "batarang",
-  "version": "2.0.11",
+  "version": "2.1.4",
   "description": "Tiny javascript functions to attack not-so-everyday problems",
   "main": "index.js",
   "scripts": {
@@ -26,6 +26,8 @@
     "sinon": "^7.3.2"
   },
   "dependencies": {
+    "lodash": "^4.17.10",
+    "path-to-regexp": "^3.0.0",
     "query-string": "^5.0.0",
     "strformat": "0.0.7"
   }
