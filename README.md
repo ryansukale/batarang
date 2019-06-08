@@ -327,6 +327,27 @@ Given a `method` that returns a promise that resolves or rejects, this function 
 - `options.retryArgs`:(Optional) If you want to pass a different set of arguments when the function is being retried, pass an array of arguments here. By default all retries are invoked with the same arguments as the original invocation.
 - `options.validator`: (Optional) Function that is invoked on promise resolution with the promise result, to which you can apply custom logic to determine if the result was a success or failure. Return false from this function if you want to continue retrying, return true to exit.
 
+```js
+function alwaysReject() {
+  console.log('return rejection');
+  return Promise.reject();
+}
+var retryableAlwaysReject = retryPromise(alwaysReject, {
+  retry: 2
+});
+retryableAlwaysReject(); // Prints 'return rejection' 3 times in total
+
+function badValue() {
+  console.log('returns bad value');
+  return Promise.resolve(400);
+}
+var retryableBadValue = retryPromise(badValue, {
+  validator: function () { return value !== 400; }
+});
+retryableBadValue(); // Prints 'returns bad value' 2 times in total
+```
+
+
 ##### getRangeWindow(index, maxIndex, size)
 Given `index`, return an array of maximum length `size`, such that
 - `index` is present in the array.
