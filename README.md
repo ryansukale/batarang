@@ -321,7 +321,7 @@ getYoutubeVideoId(embedUrl); // ZRG1tWQN6e8
 ### Misc Utilities
 
 ##### retryPromise(method, options)
-Returns a retryable method that will be automatically retried upon failure.
+Given a `method` that returns a promise that resolves or rejects, this function returns a retryable method, which will automatically retry the `method` when the promise is rejected. Its very similar to a debounce/throttle. The retryable method returned can be use as a drop in replacement of the original method.
 - `method`:(Required) The method that needs to be retried. The method must return a promise.
 - `options.retries`:(Optional, default: 1) Number of times `method` will be invoked after first failure.
 - `options.retryArgs`:(Optional) If you want to pass a different set of arguments when the function is being retried, pass an array of arguments here. By default all retries are invoked with the same arguments as the original invocation.
