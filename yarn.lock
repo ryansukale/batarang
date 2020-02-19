@@ -2,6 +2,16 @@
 # yarn lockfile v1
 
 
+"@ramda/curry@^0.26.1":
+  version "0.26.1"
+  resolved "https://registry.yarnpkg.com/@ramda/curry/-/curry-0.26.1.tgz#cf4820a9d94019552ff9a3bfd059061a4465719f"
+  integrity sha512-y6/0e6BuvHorBviD8E8fvBu/vjBWw52CbuZMrfWGVAzm8+cHcC7jHw7Iq3TNGu93LJjg7KKTgDjaNkXXWk5JpQ==
+
+"@ramda/sum@^0.26.1":
+  version "0.26.1"
+  resolved "https://registry.yarnpkg.com/@ramda/sum/-/sum-0.26.1.tgz#a70538875bc6ce7a9cc477350dcf0afee7bffd3d"
+  integrity sha512-ashkF2GiqcqqIy2ALPZkgQPTWoncbRSThDeFxQwqOSaw3fKe4GKDHeTWqDqLVRK+TMrbwedZR0mI9I5f8yYd0Q==
+
 "@sinonjs/commons@^1", "@sinonjs/commons@^1.0.2", "@sinonjs/commons@^1.4.0":
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/@sinonjs/commons/-/commons-1.4.0.tgz#7b3ec2d96af481d7a0321252e7b1c94724ec5a78"

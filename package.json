@@ -26,6 +26,8 @@
     "sinon": "^7.3.2"
   },
   "dependencies": {
+    "@ramda/curry": "^0.26.1",
+    "@ramda/sum": "^0.26.1",
     "lodash": "^4.17.10",
     "path-to-regexp": "^3.0.0",
     "query-string": "^5.0.0",
