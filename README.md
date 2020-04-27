@@ -11,11 +11,17 @@ A utility belt of tiny javascript functions to attack common business problems.
 - [x] Lightweight
 - [x] Individual imports
 
-`yarn add batarang`
+
+```
+yarn add batarang
+```
 
 OR
 
-`npm install batarang --save`
+
+```
+npm install batarang --save
+```
 
 Require individual functions from the library so you only load what you need e.g.
 
