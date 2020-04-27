@@ -63,6 +63,10 @@ npm run test
 * <a href="#isenterkeyevent">`isEnterKey`</a>
 * <a href="#slugifytext">`slugify`</a>
 * <a href="#reloadpagebooleanfalse">`reloadPage`</a>
+* <a href="#getrandombetweenmin-max">`getRandomBetween`</a>
+* <a href="#gettotalkey-array">`getTotal`</a>
+* <a href="#isbetweenmin-max-number">`isBetween`</a>
+* <a href="#percentoftotal-percent">`isBetween`</a>
 
 ---
 
