@@ -1,10 +1,15 @@
 
-![batarang javascript library](batarang_icon.jpg)
+<p align="center" style="color: #343a40">
+  <img src="https://raw.githubusercontent.com/ryansukale/batarang/master/batarang_icon.jpg" alt="batarang" >
+  <h1 align="center">batarang</h1>
+</p>
 
-batarang.js
----
 
-A utility belt of tiny javascript functions to attack not-so-everyday problems.
+A utility belt of tiny javascript functions to attack common business problems.
+
+- [x] Pure functions
+- [x] Lightweight
+- [x] Individual imports
 
 `yarn add batarang`
 
@@ -66,7 +71,7 @@ npm run test
 * <a href="#getrandombetweenmin-max">`getRandomBetween`</a>
 * <a href="#gettotalkey-array">`getTotal`</a>
 * <a href="#isbetweenmin-max-number">`isBetween`</a>
-* <a href="#percentoftotal-percent">`isBetween`</a>
+* <a href="#percentoftotal-percent">`percentOf`</a>
 
 ---
 
