@@ -408,6 +408,57 @@ reloadPage(true); // Attempts to reload page from the server
 ```
 ---
 
+##### getRandomBetween(min, max)
+Returns a random number between min and max
+
+```js
+getRandomBetween(10, 20);
+```
+
+---
+
+##### getTotal(key, array)
+Given an array of objects, return a sum of values for the specified key for each item.
+This is a curried function.
+
+```js
+var items = [
+  {wins: 1, games: 4},
+  {wins: 2, games: 2},
+  {wins: 3, games: 5}
+];
+getTotal('wins', items) // 5
+getTotal('games', items) // 11
+```
+
+---
+
+##### isBetween({min, max}, number)
+Returns true if the number is within range.
+This is a curried function.
+
+```js
+var range = {min: 10, max: 20};
+isBetween(range, 11) // true
+isBetween(range, 100) // false
+```
+
+---
+
+##### percentOf(total, percent)
+Returns value from the total that represents the percentage.
+This is a curried function.
+
+```js
+percentOf(25, 20) // 5 is 20 percent of 25
+
+// The curried form makes it more obvious
+var twentyFivePercentOf = percentOf(25);
+twentyFivePercentOf(20) // 5
+```
+
+---
+
 Some additional notes and legacy functions are documented in [the wiki](https://github.com/ryansukale/batarang/wiki)
 
 ##### License
