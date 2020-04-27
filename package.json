@@ -4,7 +4,8 @@
   "description": "Tiny javascript functions to attack not-so-everyday problems",
   "main": "index.js",
   "scripts": {
-    "test": "mocha tests/*.test.js"
+    "test": "mocha tests/*.test.js",
+    "release": "git push --tags && npm publish"
   },
   "repository": {
     "type": "git",
@@ -22,13 +23,13 @@
   "homepage": "https://github.com/ryansukale/batarang#readme",
   "devDependencies": {
     "chai": "^3.5.0",
-    "mocha": "^3.1.2",
+    "mocha": "^7.1.2",
     "sinon": "^7.3.2"
   },
   "dependencies": {
     "@ramda/curry": "^0.26.1",
     "@ramda/sum": "^0.26.1",
-    "lodash": "^4.17.10",
+    "lodash.isempty": "^4.4.0",
     "path-to-regexp": "^3.0.0",
     "query-string": "^5.0.0",
     "strformat": "0.0.7"
