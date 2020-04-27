@@ -1,5 +1,5 @@
 var pathToRegexp = require('path-to-regexp');
-var isEmpty = require('lodash/isEmpty');
+var isEmpty = require('lodash.isempty');
 var queryString = require('query-string');
 var lookup = {};
 
