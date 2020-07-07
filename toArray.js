@@ -1,3 +1,5 @@
-const toArray = (item) => (item ? (Array.isArray(item) ? item : [item]) : []);
+function toArray(item) {
+  return item ? (Array.isArray(item) ? item : [item]) : [];
+}
 
-export default toArray;
+module.exports = toArray;
