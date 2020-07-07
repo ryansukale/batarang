@@ -5,7 +5,7 @@ var ROOT = '../';
 var toHash = require(ROOT + '/toHash');
 
 describe('toHash', function () {
-  it('uses the getKey function to determine the key', function () {
+  it('uses the getKey function to return a hash with the key', function () {
     var arr = [
       {id: 1, val: 11},
       {id: 2, val: 22},
@@ -14,7 +14,7 @@ describe('toHash', function () {
 
     function getKey(item) { return item.val};
 
-    const expectedOutput = {
+    var expectedOutput = {
       11: arr[0],
       22: arr[1],
       33: arr[2]
