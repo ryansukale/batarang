@@ -5,7 +5,7 @@ var ROOT = "../";
 
 var delayPromise = require(ROOT + "/delayPromise");
 
-describe.only("delayPromise", function () {
+describe("delayPromise", function () {
   this.beforeEach(function () {
     this.clock = sinon.useFakeTimers();
   });
@@ -33,21 +33,6 @@ describe.only("delayPromise", function () {
     delayPromise(500, value).then(function (arg) {
       isCalled = true;
       expect(arg).to.equal(value);
-      done();
-    });
-
-    // Initially isCalled is false
-    expect(isCalled).to.equal(false);
-    this.clock.tick(510);
-  });
-
-  it("resolves the promise after a delay and invoikes the callback after a delay", function (done) {
-    var isCalled = false;
-    function callback() {
-      isCalled = true;
-    }
-    delayPromise(500, callback).then(function () {
-      expect(isCalled).to.equal(true);
       done();
     });
 

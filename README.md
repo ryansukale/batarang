@@ -1,6 +1,6 @@
 
 <p align="center" style="color: #343a40">
-  <img src="https://raw.githubusercontent.com/ryansukale/batarang/master/batarang_icon.jpg" alt="batarang" >
+  <img src="https://raw.githubusercontent.com/ryansukale/batarang/master/batarang_icon.jpg" alt="batarang" />
   <h1 align="center">batarang</h1>
 </p>
 
@@ -68,6 +68,7 @@ npm run test
 
 ## MISC
 * <a href="#retrypromisemethod-options">`retryPromise`</a>
+* <a href="#delaypromisetime-value">`delaypromisetime`</a>
 * <a href="#getRangeWindow">`getRangeWindow`</a>
 * <a href="#capitalizefirstcharstring">`capitalizeFirstChar`</a>
 * <a href="#getcsvwordsstring">`getCSVWords`</a>
@@ -360,6 +361,15 @@ var retryableBadValue = retryPromise(badValue, {
   validator: function () { return value !== 400; }
 });
 retryableBadValue(); // Prints 'returns bad value' 2 times in total
+```
+
+##### delayPromise(time, value)
+Returns a promise that is delayed by the specified time.
+- If 'value' is provided, it is the resolved value of the promise
+
+```js
+delayPromise(500).then(() => console.log('done'));
+delayPromise(500, 'val').then((val) => console.log(val === 'val'));
 ```
 
 
