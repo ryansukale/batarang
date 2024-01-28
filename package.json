@@ -33,5 +33,9 @@
     "path-to-regexp": "^3.0.0",
     "query-string": "^5.0.0",
     "strformat": "0.0.7"
+  },
+  "volta": {
+    "node": "20.11.0",
+    "yarn": "1.22.19"
   }
 }

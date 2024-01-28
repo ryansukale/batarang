@@ -9,7 +9,7 @@ function delayPromise(time, value) {
     }
     return value;
   }
-  new Promise((resolve) => setTimeout(resolve, time)).then(afterTimeout);
+  return new Promise((resolve) => setTimeout(resolve, time)).then(afterTimeout);
 }
 
 module.exports = delayPromise;
