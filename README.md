@@ -68,7 +68,7 @@ npm run test
 
 ## MISC
 * <a href="#retrypromisemethod-options">`retryPromise`</a>
-* <a href="#delaypromisetime-value">`delaypromisetime`</a>
+* <a href="#delaypromisetime-value">`delayPromise`</a>
 * <a href="#getRangeWindow">`getRangeWindow`</a>
 * <a href="#capitalizefirstcharstring">`capitalizeFirstChar`</a>
 * <a href="#getcsvwordsstring">`getCSVWords`</a>
