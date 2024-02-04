@@ -34,7 +34,7 @@ describe("intersperseWith", () => {
       foo,
       '<span key="1">--</span>',
       bar,
-      '<span key="2">--</span>',
+      '<span key="3">--</span>',
       baz,
     ]);
   });
