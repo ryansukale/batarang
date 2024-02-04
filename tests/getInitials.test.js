@@ -4,7 +4,7 @@ var ROOT = "../";
 
 var getInitials = require(ROOT + "/getInitials");
 
-describe.only("getInitials", () => {
+describe("getInitials", () => {
   it("returns null when nothing is passed", () => {
     expect(getInitials()).to.equal("");
   });
