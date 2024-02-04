@@ -53,6 +53,7 @@ npm run test
 * <a href="#cyclearray">`cycle`</a>
 * <a href="#segregategroupingarray-itemarray">`segregate`</a>
 * <a href="#segregatebyfunction-itemarray">`segregateBy`</a>
+* <a href="#interspersewithfunction-itemarray">`intersperseWith`</a>
 
 ---
 
@@ -234,6 +235,31 @@ var result = segregateBy(condition, items);
 //    even: [{name: 'b', val: 2}, {name: 'd', val: 4}],
 //    odd: [{name: 'a', val: 1}, {name: 'c', val: 3}]
 // }
+```
+
+##### intersperseWith(function, itemArray)
+Inserts the return value of a function into an array. This is very similar to Ramda's intersperse with the only difference being that this function also accepts a function as an argument.
+This is useful if your array is not a primitive, e.g. if you have an array of dom nodes, or react elements and want to insert some other dom nodes, like dom separators, this function lets you easily achieve that.
+
+```js
+var items = [
+  "<span>FOO</span>",
+  "<span>BAR</span>",
+  "<span>BAZ</span>",
+];
+
+function getSeparator(idx) { return `<span key="separator-${idx}">--</span>` };
+
+var result = intersperseWith(getSeparator, items)
+
+// result
+// [
+//    "<span>FOO</span>",
+//    "<span key="separator-1">--</span>"
+//    "<span>BAR</span>"
+//    "<span key="separator-3">--</span>"
+//    "<span>BAZ</span>"
+// ]
 ```
 
 ---
