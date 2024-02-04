@@ -18,6 +18,7 @@ describe("intersperseWith", () => {
 
     const foo = "<span>FOO</span>";
     const bar = "<span>BAR</span>";
+    const baz = "<span>BAZ</span>";
 
     expect(intersperseWith((idx) => `-${idx}-`, [])).to.deep.equal([]);
 
@@ -29,8 +30,12 @@ describe("intersperseWith", () => {
       2,
     ]);
 
-    expect(
-      intersperseWith(getSeparator, ["<span>FOO</span>", "<span>BAR</span>"])
-    ).to.deep.equal([foo, '<span key="1">--</span>', bar]);
+    expect(intersperseWith(getSeparator, [foo, bar, baz])).to.deep.equal([
+      foo,
+      '<span key="1">--</span>',
+      bar,
+      '<span key="2">--</span>',
+      baz,
+    ]);
   });
 });
