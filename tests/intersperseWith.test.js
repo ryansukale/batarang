@@ -5,14 +5,6 @@ var ROOT = "../";
 var intersperseWith = require(ROOT + "/intersperseWith");
 
 describe("intersperseWith", () => {
-  // it("insert a separator when called with a non-function separator", () => {
-  //   expect(intersperseWith("separator", [1, 2])).to.deep.equal([
-  //     1,
-  //     "separator",
-  //     2,
-  //   ]);
-  // });
-
   it("returns an array with the separator interspersed between array elements", () => {
     const getElement = (value, idx) =>
       value !== undefined ? value : `<span key="${idx}">--</span>`;

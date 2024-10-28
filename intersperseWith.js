@@ -1,7 +1,3 @@
-function isFunction(val) {
-  return typeof val === "function";
-}
-
 /**
  * Inserts the return value of a function into an array. This is very similar to Ramda's intersperse
  * with the only difference being that this function also accepts a function as an argument
