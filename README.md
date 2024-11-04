@@ -247,7 +247,7 @@ var items = [
   "<span>BAZ</span>",
 ];
 
-function getElement(value, idx) { return `<span key="separator-${idx}">--</span>` };
+function getElement(idx) { return `<span key="separator-${idx}">--</span>` };
 
 var result = getElement(getSeparator, items)
 
