@@ -238,8 +238,7 @@ var result = segregateBy(condition, items);
 ```
 
 ##### intersperseWith(function, itemArray)
-Inserts the return value of a function into an array, by alternatively calling it with the array element and a function that you can use to return the separator.
-This is useful if your array is not a primitive, e.g. if you have an array of dom nodes, or react elements and want to insert some other dom nodes, like dom separators, this function lets you easily achieve that.
+Inserts the return value of a function into an array. This is very similar to Ramda's intersperse with the only difference being that it invokes a function for every index at which the separator will be insered e.g. This is especially handy if you have an array of dom nodes or react elements and want to insert some other dom nodes, like dom separators
 
 ```js
 var items = [
@@ -248,7 +247,7 @@ var items = [
   "<span>BAZ</span>",
 ];
 
-function getElement(value, idx) { return value !== undefined ? value : `<span key="separator-${idx}">--</span>` };
+function getElement(value, idx) { return `<span key="separator-${idx}">--</span>` };
 
 var result = getElement(getSeparator, items)
 
