@@ -53,6 +53,7 @@ npm run test
 * <a href="#cyclearray">`cycle`</a>
 * <a href="#segregategroupingarray-itemarray">`segregate`</a>
 * <a href="#segregatebyfunction-itemarray">`segregateBy`</a>
+* <a href="#interspersewithfunction-itemarray">`intersperseWith`</a>
 
 ---
 
@@ -69,9 +70,12 @@ npm run test
 ## MISC
 * <a href="#retrypromisemethod-options">`retryPromise`</a>
 * <a href="#delaypromisetime-value">`delayPromise`</a>
-* <a href="#getRangeWindow">`getRangeWindow`</a>
+
+* <a href="#getinitialsstring">`getInitials`</a>
 * <a href="#capitalizefirstcharstring">`capitalizeFirstChar`</a>
 * <a href="#getcsvwordsstring">`getCSVWords`</a>
+
+* <a href="#getRangeWindow">`getRangeWindow`</a>
 * <a href="#isenterkeyevent">`isEnterKey`</a>
 * <a href="#slugifytext">`slugify`</a>
 * <a href="#reloadpagebooleanfalse">`reloadPage`</a>
@@ -233,6 +237,30 @@ var result = segregateBy(condition, items);
 // }
 ```
 
+##### intersperseWith(function, itemArray)
+Inserts the return value of a function into an array. This is very similar to Ramda's intersperse with the only difference being that it invokes a function for every index at which the separator will be insered e.g. This is especially handy if you have an array of dom nodes or react elements and want to insert some other dom nodes, like dom separators
+
+```js
+var items = [
+  "<span>FOO</span>",
+  "<span>BAR</span>",
+  "<span>BAZ</span>",
+];
+
+function getElement(value, idx) { return `<span key="separator-${idx}">--</span>` };
+
+var result = getElement(getSeparator, items)
+
+// result
+// [
+//    "<span>FOO</span>",
+//    "<span key="separator-1">--</span>"
+//    "<span>BAR</span>"
+//    "<span key="separator-3">--</span>"
+//    "<span>BAZ</span>"
+// ]
+```
+
 ---
 
 ### URL Utilities
@@ -373,19 +401,13 @@ delayPromise(500, 'val').then((val) => console.log(val === 'val'));
 ```
 
 
-##### getRangeWindow(index, maxIndex, size)
-Given `index`, return an array of maximum length `size`, such that
-- `index` is present in the array.
-- items to the right of the `index` are larger than index.
-- items on the left of the `index` are smaller than index.
-
-This is useful for creating buttons that represent page numbers in a pagination toolbar.
-
+##### getInitials(string)
+Returns the initials for a name. The name can have multiple words, or spaces. It only selects the first and last words to deterime the first and last name and extracts the first character from them to generate initials.
 ```js
-getRangeWindow(0, 10, 4) // [0, 1, 2, 3]
-getRangeWindow(0, 2, 4) // [0, 1, 2]
-getRangeWindow(2, 3, 4) // [0, 1, 2, 3]
-getRangeWindow(3, 3, 2) // [2, 3]
+getInitials("barack Hussein obama") // "BO"
+getInitials("barack Hussein Obama") // "BO"
+getInitials("Barack") // "B"
+getInitials(" Barack Hussein with extra words and spaces    obama    ") // BO
 ```
 
 ##### capitalizeFirstChar(string)
@@ -402,6 +424,22 @@ For a given comma separated string, returns and array of words split by comma. T
 ```js
 getCSVWords(',  hello,, ,    ,world, ,');
 // ['hello', 'world']
+```
+
+
+##### getRangeWindow(index, maxIndex, size)
+Given `index`, return an array of maximum length `size`, such that
+- `index` is present in the array.
+- items to the right of the `index` are larger than index.
+- items on the left of the `index` are smaller than index.
+
+This is useful for creating buttons that represent page numbers in a pagination toolbar.
+
+```js
+getRangeWindow(0, 10, 4) // [0, 1, 2, 3]
+getRangeWindow(0, 2, 4) // [0, 1, 2]
+getRangeWindow(2, 3, 4) // [0, 1, 2, 3]
+getRangeWindow(3, 3, 2) // [2, 3]
 ```
 
 ##### isEnterKey(event)
